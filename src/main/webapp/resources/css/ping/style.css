@@ -1,3 +1,8 @@
+body{
+	/*background-color: #eeede8;*/
+	font-family: 'Open Sans', sans-serif;
+}
+/*HEADER*/
 header select {
 	position:relative;
 	top:20%;
@@ -7,7 +12,7 @@ header select {
 	font-size: 16px;
 }
 
-header .container-fluid .row div {
+header .container-fluid .top-up .row div {
 	background-color: #428bca;
 	text-align:center;
 	line-height:40px;
@@ -18,10 +23,48 @@ header .top-down .row {
 	border-bottom: 1px solid #ddd;
 	padding: 0.7em 0 1em;
 }
-body{
-	background-color: #eeede8;
-	font-family: 'Open Sans', sans-serif;
+
+.bar {
+	margin:auto;
+	width: 80%;
+	height: 48px;
+	border-radius:5px 5px 5px 5px;
+	border: 2px;
+	border-style: solid;
+	border-color: #ddd;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+70,f1f1f1+70,e1e1e1+90,e1e1e1+90,f6f6f6+100 */
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 70%, rgba(241,241,241,1) 70%, rgba(225,225,225,1) 90%, rgba(225,225,225,1) 90%, rgba(246,246,246,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 70%,rgba(241,241,241,1) 70%,rgba(225,225,225,1) 90%,rgba(225,225,225,1) 90%,rgba(246,246,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 70%,rgba(241,241,241,1) 70%,rgba(225,225,225,1) 90%,rgba(225,225,225,1) 90%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
 }
+.bar .bar-oo {
+	display: inline-block;
+}
+.bar ul .bar-inline {
+	padding-left:20px;
+	padding-top:7px;
+	text-align:center;
+	/*line-height:46px;*/
+	display: inline-block;
+	/*height: 30px;*/
+}
+.bar-search {
+	position: relative;
+	right: -40%;
+}
+.bar a {
+	color:black;
+}
+.bar a:hover {
+	text-decoration:none;
+}
+
+
+
+
+/*中間*/
 .container-left {
 	position: relative;
 	left: 20%;
@@ -30,3 +73,11 @@ body{
 	position: absolute;
 	left: 10%;
 }
+.circle {
+	width:100px;
+    height:100px;
+    background:#0cc;
+    -webkit-clip-path:circle(50% at 50% 50%);
+}
+
+

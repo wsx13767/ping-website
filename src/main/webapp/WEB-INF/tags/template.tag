@@ -24,36 +24,55 @@
 <body>
 	<header>
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-4">Welcome</div>
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
-					<select>
-						<option>選擇語言</option>
-						<option>English</option>
-						<option>中文</option>
-					</select>
+			<div class="top-up">
+				<div class="row">
+					<div class="col-md-4">Welcome</div>
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<select>
+							<option>選擇語言</option>
+							<option>English</option>
+							<option>中文</option>
+						</select>
+					</div>
 				</div>
 			</div>
+			<%-- 
+			<div class="top-down">
+				<div class="row">
+					<div class="col-md-4">Logo</div>
+					<div class="col-md-4">Search</div>
+					<div class="col-md-4">登入</div>
+				</div>
+			</div>--%>
 		</div>
-		<div class="top-down">
-			<div class="row">
-				<div class="col-md-4">Logo</div>
-				<div class="col-md-4">Search</div>
-				<div class="col-md-4">登入</div>
-			</div>
-		</div>
+<div class="bar">
+	<ul class="bar-oo">
+		<li class="dropdown bar-inline">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">dddd<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="#">a</a></li>
+				<li><a href="#">a</a></li>
+			</ul>
+		</li>
+		<li class="bar-inline">aaa</li>
+		
+	</ul>
+	<ul class="bar-oo bar-search">
+		<li class="bar-inline">
+			<input type="text" style="height: 30px;border-radius:15px 15px 15px 15px;padding-left: 10px;outline: none;" placeholder="搜尋">
+		</li>
+		<li class="bar-inline"><button class="btn btn-primary" style="">dd</button></li>
+	</ul>
+</div>
 	</header>
 	<div class="container">
 		<div class="row">
 				<div class="col-md-3">
-					<div style="width:200px;background-color: black;">
-					<h2 style="color: white;">Menu</h2>
-					<ul style="width:200px;" id="menu">
-						<li><div>Item 1</div></li>
-						<li><div>Item 2</div></li>
-						<li><div>Item 3</div>
-							<ul>
+					<ul style="width:130px;" id="menu">
+						<li><div>個人資訊<span class="ui-icon ui-icon-person"></span></div></li>
+						<li><div>商品<span class="ui-icon ui-icon-cart"></span></div>
+							<ul style="width: 110px;">
 								<li><div>Item 3-1</div></li>
 								<li><div>Item 3-2</div></li>
 								<li><div>Item 3-3</div></li>
@@ -61,10 +80,9 @@
 								<li><div>Item 3-5</div></li>
 							</ul>
 						</li>
-						<li><div>Item 4</div></li>
-						<li><div>Item 5</div></li>
+						<li><div>介紹<span class="ui-icon ui-icon-comment"></span></div></li>
+						<li><div>聯絡我們<span class="ui-icon ui-icon-mail-closed"></span></div></li>
 					</ul>
-					</div>
 				</div>
 				<div class="col-md-9">
 					<jsp:doBody />

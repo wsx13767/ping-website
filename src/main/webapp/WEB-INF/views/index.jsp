@@ -5,8 +5,27 @@
 <t:template>
 	<jsp:body>
 		<h1>hello</h1>
+		<div class="circle"></div>
+		<ul class="bar2">
+			<li>測試</li>
+			<li>測試</li>
+			<li>測試</li>
+		</ul>
+		<h2 class="demoHeaders">Selectmenu</h2>
+<select id="selectmenu">
+	<option>Slower</option>
+	<option>Slow</option>
+	<option selected="selected">Medium</option>
+	<option>Fast</option>
+	<option></option>
+</select>
+
+
+
+
 		<!-- Datepicker -->
 <h2 class="demoHeaders">Datepicker</h2>
-<div id="datepicker"></div><input type="text" id="alternate" size="30">
+<div id="datepicker"></div><input type="text" id="alternate" size="30" disabled="disabled">
+
 	</jsp:body>
 </t:template>
