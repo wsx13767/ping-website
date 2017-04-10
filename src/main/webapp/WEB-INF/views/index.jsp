@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <t:template>
 	<jsp:body>
+		<script src="resources/js/ping/index.js"></script>
 		<h1>hello</h1>
 		<div class="circle"></div>
 		<ul class="bar2">

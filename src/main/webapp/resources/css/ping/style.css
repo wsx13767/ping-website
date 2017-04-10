@@ -1,7 +1,53 @@
 body{
 	/*background-color: #eeede8;*/
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Trebuchet MS", sans-serif;
+	margin: 50px;
 }
+
+.demoHeaders {
+	margin-top: 2em;
+}
+
+#dialog-link {
+	padding: .4em 1em .4em 20px;
+	text-decoration: none;
+	position: relative;
+}
+
+#dialog-link span.ui-icon {
+	margin: 0 5px 0 0;
+	position: absolute;
+	left: .2em;
+	top: 50%;
+	margin-top: -8px;
+}
+
+#icons {
+	margin: 0;
+	padding: 0;
+}
+
+#icons li {
+	margin: 2px;
+	position: relative;
+	padding: 4px 0;
+	cursor: pointer;
+	float: left;
+	list-style: none;
+}
+
+#icons span.ui-icon {
+	float: left;
+	margin: 0 4px;
+}
+
+.fakewindowcontain .ui-widget-overlay {
+	position: absolute;
+}
+
+
+
+
 /*HEADER*/
 header select {
 	position:relative;
@@ -11,6 +57,13 @@ header select {
 	width: 100px;
 	font-size: 16px;
 }
+header .container-fluid a {
+	color: white;
+}
+header .container-fluid a:hover {
+	text-decoration:none;
+}
+
 
 header .container-fluid .top-up .row div {
 	background-color: #428bca;
@@ -25,6 +78,7 @@ header .top-down .row {
 }
 
 .bar {
+	position:relative;
 	margin:auto;
 	width: 80%;
 	height: 48px;
@@ -39,7 +93,7 @@ header .top-down .row {
 	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 70%,rgba(241,241,241,1) 70%,rgba(225,225,225,1) 90%,rgba(225,225,225,1) 90%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
 }
-.bar .bar-oo {
+.bar .bar-ul {
 	display: inline-block;
 }
 .bar ul .bar-inline {
@@ -50,10 +104,19 @@ header .top-down .row {
 	display: inline-block;
 	/*height: 30px;*/
 }
+/*搜尋*/
 .bar-search {
-	position: relative;
-	right: -40%;
+	position:absolute;
+	right: 5%;
 }
+
+.bar-search input {
+	height: 30px;
+	border-radius:15px 15px 15px 15px;
+	padding-left: 10px;
+	outline: none;
+}
+
 .bar a {
 	color:black;
 }
@@ -62,16 +125,11 @@ header .top-down .row {
 }
 
 
-
-
 /*中間*/
 .container-left {
-	position: relative;
-	left: 20%;
 }
 .container-right {
-	position: absolute;
-	left: 10%;
+
 }
 .circle {
 	width:100px;
