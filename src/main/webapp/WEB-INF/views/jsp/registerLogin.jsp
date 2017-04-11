@@ -41,6 +41,21 @@
 											<h4 class="modal-title">詳細資料</h4>
 										</div>
 										<div class="modal-body">
+											<h3>權益說明</h3>
+											<div>
+												<textarea rows="6" cols="30" class="form-control" style="resize: none;" disabled="disabled" >
+													s
+													s
+													s
+													s
+													s
+													s
+													s
+													s
+													s
+													s
+												</textarea>
+											</div>
 											<div class="form-group">
 												<label>姓名</label>
 												<input type="text" class="form-control">
