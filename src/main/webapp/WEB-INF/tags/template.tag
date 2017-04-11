@@ -88,7 +88,6 @@
 				<div class="col-md-10">
 					<jsp:doBody />
 				</div>
-			
 		</div>
 	</div>
 </body>
