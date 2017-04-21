@@ -5,6 +5,7 @@
 <t:template>
 	<jsp:body>
 		<script src="resources/js/ping/index.js"></script>
+		${account}
 		<h1>hello</h1>
 		<div class="circle"></div>
 		<ul class="bar2">

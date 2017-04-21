@@ -5,19 +5,20 @@
 <t:template>
 	<jsp:body>
 		<link href="resources/css/ping/registerLogin.css" rel="stylesheet">
+		<script src="resources/js/ping/registerLogin.js"></script>
 		<div class="row">
 			<div class="col-md-5">
 				<div class="panel panel-primary">
 					<div class="panel-heading">登入</div>
 					<div class="panel-body">
-						<form role="fo	rm" action="">
+						<form role="form" id="loginForm" action="index">
 							<div class="form-group">
 								<label>帳號</label>
-								<input type="text" class="form-control">
+								<input type="text" name="account" class="form-control">
 								<label>密碼</label>
-								<input type="password" class="form-control">
+								<input type="password" name="password" class="form-control">
 							</div>
-							<button type="button" class="btn btn-primary">送出</button>
+							<button type="button" onclick="loginCheck();" class="btn btn-primary">送出</button>
 						</form>
 					</div>
 				</div>
@@ -55,7 +56,9 @@
 													s
 													s
 												</textarea>
+												<input type="checkbox" id="alreadyRead" />已閱讀
 											</div>
+											<fieldset disabled>
 											<div class="form-group">
 												<label>姓名</label>
 												<input type="text" class="form-control">
@@ -72,6 +75,7 @@
 													<input name="sex" type="radio">女
 												</label>
 											</div>
+											</fieldset>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
