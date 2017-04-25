@@ -25,24 +25,22 @@ public class RegisterLoginController {
 	}
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
-	public void login(RegisterLoginFormBean formBean, 
+	public String login(RegisterLoginFormBean formBean, 
 			HttpServletResponse res, HttpSession session) {
 		System.out.println("login");
 		boolean result = service.login(formBean);
 		if (result) {
 			session.setAttribute("sessionAccount", formBean.getAccount());
+			return "loginSuccess";
 		}
-		try {
-			res.getWriter().print(result);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		return "loginFail";
 	}
-	@RequestMapping(value="/logout" , method = RequestMethod.POST)
+	@RequestMapping(value="/logout", method = RequestMethod.POST)
 	public String logout(HttpSession session, HttpServletResponse res) {
 		System.out.println("logout");
 		session.removeAttribute("sessionAccount");
 		return "logout";
 
 	}
+	
 }

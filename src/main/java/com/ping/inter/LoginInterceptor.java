@@ -24,7 +24,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if (request.getSession().getAttribute("sessionAccount") != null) {
 			return true;
 		}
-		response.sendRedirect("views/registerLogin");
+		response.sendRedirect("registerLogin");
 		return false;
 	}
 

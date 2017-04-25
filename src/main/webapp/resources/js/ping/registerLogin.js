@@ -14,16 +14,16 @@ function alreadyRead() {
 	});
 }
 
-function loginCheck() {
-	$.ajax({
-		type:"post",
-		data:$("#loginForm").serialize(),
-		url:"registerLogin/login",
-		success:function(result) {
-			if (result == "true") {
-				$("#loginForm").submit();
-			} else {
-			}
-		}
-	});
-}
+//function loginCheck() {
+//	$.ajax({
+//		type:"post",
+//		data:$("#loginForm").serialize(),
+//		url:"registerLogin/login",
+//		success:function(result) {
+////			if (result == "true") {
+////				$("#loginForm").submit();
+////			} else {
+////			}
+//		}
+//	});
+//}

@@ -113,13 +113,13 @@ $(document).ready(function() {
 			$( this ).removeClass( "ui-state-hover" );
 		}
 	);
-	if (location.href.endsWith(registerLogin)) {
-		$("#registerLogin").show();
-		$("#logout").hide();
-	} else {
-		$("#registerLogin").hide();
-		$("#logout").show();
-	}
+//	if (location.href.endsWith(registerLogin)) {
+//		$("#registerLogin").show();
+//		$("#logout").hide();
+//	} else {
+//		$("#registerLogin").hide();
+//		$("#logout").show();
+//	}
 });
 function logout() {
 	$("#logout").submit();

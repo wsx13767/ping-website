@@ -23,7 +23,6 @@
 	</bean>
 	
 	
-	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/views"/>

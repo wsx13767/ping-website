@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value={"/views"})
+@RequestMapping(value={"/"})
 public class IndexController {
     @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
     public String getPage() {

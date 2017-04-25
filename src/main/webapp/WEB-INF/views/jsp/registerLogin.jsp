@@ -12,14 +12,14 @@
 				<div class="panel panel-primary">
 					<div class="panel-heading">登入</div>
 					<div class="panel-body">
-						<form role="form" id="loginForm" action="views" method="post">
+						<form role="form" id="loginForm" action="<c:url value="/views/registerLogin/login"/>" method="post">
 							<div class="form-group">
 								<label>帳號</label>
 								<input type="text" name="account" class="form-control">
 								<label>密碼</label>
 								<input type="password" name="password" class="form-control">
 							</div>
-							<button type="button" onclick="loginCheck();" class="btn btn-primary">送出</button>
+							<button type="submit" class="btn btn-primary">送出</button>
 						</form>
 					</div>
 				</div>

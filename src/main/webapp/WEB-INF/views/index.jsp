@@ -6,7 +6,7 @@
 <t:template>
 	<jsp:body>
 		<script src="<c:url value="/resources/js/ping/index.js"/>"></script>
-		${account}
+		${sessionAccount}
 		<h1>hello</h1>
 		<div class="circle"></div>
 		<ul class="bar2">

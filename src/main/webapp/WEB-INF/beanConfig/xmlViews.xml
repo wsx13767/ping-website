@@ -7,4 +7,16 @@
 		<property name="contextRelative" value="true"/>
 		<property name="url" value="/views/registerLogin"/>
 	</bean>
+	
+	<bean id="loginSuccess" class="org.springframework.web.servlet.view.RedirectView">
+		<property name="contextRelative" value="true"/>
+		<property name="url" value="/"/>
+	</bean>
+	
+	<bean id="loginFail" class="org.springframework.web.servlet.view.RedirectView">
+		<property name="contextRelative" value="true"/>
+		<property name="url" value="/views/registerLogin"/>
+	</bean>
+	
+	
 </beans>
