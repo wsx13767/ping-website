@@ -1,17 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <t:template>
 	<jsp:body>
-		<link href="resources/css/ping/registerLogin.css" rel="stylesheet">
-		<script src="resources/js/ping/registerLogin.js"></script>
+		<link href="<c:url value="/resources/css/ping/registerLogin.css"/>" rel="stylesheet">
+		<script src="<c:url value="/resources/js/ping/registerLogin.js"/>"></script>
 		<div class="row">
 			<div class="col-md-5">
 				<div class="panel panel-primary">
 					<div class="panel-heading">登入</div>
 					<div class="panel-body">
-						<form role="form" id="loginForm" action="index">
+						<form role="form" id="loginForm" action="views" method="post">
 							<div class="form-group">
 								<label>帳號</label>
 								<input type="text" name="account" class="form-control">

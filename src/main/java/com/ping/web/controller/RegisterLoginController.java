@@ -15,7 +15,7 @@ import com.ping.formBean.RegisterLoginFormBean;
 import com.ping.service.UserService;
 
 @Controller
-@RequestMapping("/registerLogin")
+@RequestMapping("/views/registerLogin")
 public class RegisterLoginController {
 	@Autowired
 	private UserService service;
@@ -25,8 +25,9 @@ public class RegisterLoginController {
 	}
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
-	public void Login(RegisterLoginFormBean formBean, 
+	public void login(RegisterLoginFormBean formBean, 
 			HttpServletResponse res, HttpSession session) {
+		System.out.println("login");
 		boolean result = service.login(formBean);
 		if (result) {
 			session.setAttribute("sessionAccount", formBean.getAccount());
@@ -36,5 +37,12 @@ public class RegisterLoginController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	@RequestMapping(value="/logout" , method = RequestMethod.POST)
+	public String logout(HttpSession session, HttpServletResponse res) {
+		System.out.println("logout");
+		session.removeAttribute("sessionAccount");
+		return "logout";
+
 	}
 }

@@ -12,14 +12,19 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String uri = request.getRequestURI();
-		if (uri.endsWith("/registerLogin")) {
+		System.out.println(uri);
+		
+		if (uri.endsWith("/registerLogin") && request.getSession().getAttribute("sessionAccount") != null) {
+			response.sendRedirect("views");
+			return false;
+		}
+		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout")) {
 			return true;
 		}
 		if (request.getSession().getAttribute("sessionAccount") != null) {
 			return true;
 		}
-		
-		response.sendRedirect("registerLogin");
+		response.sendRedirect("views/registerLogin");
 		return false;
 	}
 

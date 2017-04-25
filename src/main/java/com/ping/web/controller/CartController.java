@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/cart")
+@RequestMapping("/views/cart")
 public class CartController {
 
 	@RequestMapping(method = RequestMethod.GET)

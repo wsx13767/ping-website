@@ -5,11 +5,11 @@
 <html>
 <head>
 <title><jsp:invoke fragment="title" /></title>
-<link href="resources/css/until/jquery-ui.css" rel="stylesheet">
-<link href="resources/css/ping/style.css" rel="stylesheet">
-<link href="resources/css/ping/index.css" rel="stylesheet">
-<script src="resources/external/jquery/jquery.js"></script>
-<script src="resources/js/jquery-ui.min.js"></script>
+<link href="<c:url value="/resources/css/until/jquery-ui.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/ping/style.css"/>" rel="stylesheet">
+<link href="<c:url value="/resources/css/ping/index.css"/>" rel="stylesheet">
+<script src="<c:url value="/resources/external/jquery/jquery.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-ui.min.js"/>"></script>
 
 <!-- 最新編譯和最佳化的 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
@@ -19,16 +19,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 
-<script src="resources/js/ping/style.js"></script>
+<script src="<c:url value="/resources/js/ping/style.js"/>"></script>
 </head>
 <body>
 	<header>
 		<div class="container-fluid">
 			<div class="top-up">
 				<div class="row">
-					<div class="col-md-4"><a href="/ping-website">Welcome</a></div>
+					<div class="col-md-4"><a href="/ping-website/views">Welcome</a></div>
 					<div class="col-md-5"></div>
-					<div class="col-md-1"><a href="registerLogin">註冊|登入</a></div>
+					<div class="col-md-1">
+						<a id="registerLogin" href="registerLogin">註冊|登入</a>
+						<form id="logout" action="registerLogin/logout" method="post">
+							<a href="#" onclick="logout()">
+								登出
+							</a>
+						</form>
+					</div>
 					<div class="col-md-2">
 						<select>
 							<option>選擇語言</option>

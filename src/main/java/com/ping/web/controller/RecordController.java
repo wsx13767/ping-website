@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/record")
+@RequestMapping("/views/record")
 public class RecordController {
 	
 	@RequestMapping(method = RequestMethod.GET)

@@ -1,8 +1,6 @@
 $(document).ready(function() {
 	$( "#accordion" ).accordion();
 
-
-
 	var availableTags = [
 		"ActionScript",
 		"AppleScript",
@@ -106,11 +104,6 @@ $(document).ready(function() {
 
 	$( "#tooltip" ).tooltip();
 
-
-
-	
-
-
 	// Hover states on the static widgets
 	$( "#dialog-link, #icons li" ).hover(
 		function() {
@@ -120,4 +113,14 @@ $(document).ready(function() {
 			$( this ).removeClass( "ui-state-hover" );
 		}
 	);
+	if (location.href.endsWith(registerLogin)) {
+		$("#registerLogin").show();
+		$("#logout").hide();
+	} else {
+		$("#registerLogin").hide();
+		$("#logout").show();
+	}
 });
+function logout() {
+	$("#logout").submit();
+}
