@@ -26,7 +26,7 @@ public class RegisterLoginController {
 	
 	@RequestMapping(value="/login",method = RequestMethod.POST)
 	public String login(RegisterLoginFormBean formBean, 
-			HttpServletResponse res, HttpSession session) {
+			HttpServletResponse res, HttpSession session, Model model) {
 		System.out.println("login");
 		boolean result = service.login(formBean);
 		if (result) {

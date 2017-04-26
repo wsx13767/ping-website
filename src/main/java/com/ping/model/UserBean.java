@@ -1,5 +1,6 @@
 package com.ping.model;
 
+import java.util.List;
 import java.util.Locale;
 
 import javax.persistence.Entity;
@@ -25,12 +26,14 @@ public class UserBean {
 	
 	
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.TAIWAN);
-		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-		HibernateUtil.getSessionFactory().getCurrentSession().beginTransaction();
-		System.out.println(session.load(UserBean.class, 1));
-		HibernateUtil.getSessionFactory().getCurrentSession().getTransaction().commit();
-		HibernateUtil.closeSessionFactory();
+//		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+//		session.beginTransaction();
+//		System.out.println(session.load(UserBean.class, 1));
+//		@SuppressWarnings("unchecked")
+//		List<UserBean> lists = session.createQuery("FROM UserBean").list();
+//		System.out.println(lists);
+//		session.getTransaction().commit();
+//		HibernateUtil.closeSessionFactory();
 	}
 	
 	@Override

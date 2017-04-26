@@ -79,7 +79,7 @@
 						<div>Menu</div>
 						<div>
 							<ul style="width:130px;" id="menu">
-								<li><div>個人資訊<span class="ui-icon ui-icon-person"></span></div></li>
+								<li><div><a href="<c:url value="/views/user"/>">個人資訊<span class="ui-icon ui-icon-person"></span></a></div></li>
 								<li><div>商品<span class="ui-icon ui-icon-cart"></span></div>
 									<ul style="width: 110px;">
 										<li><div>Item 3-1</div></li>
