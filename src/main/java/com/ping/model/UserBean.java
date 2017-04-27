@@ -23,6 +23,7 @@ public class UserBean {
 	private String email;
 	private String sex;
 	private String rank;
+	private String phone;
 	
 	
 	public static void main(String[] args) {
@@ -39,7 +40,7 @@ public class UserBean {
 	@Override
 	public String toString() {
 		return "UserBean [id=" + id + ", name=" + name + ", account=" + account + ", password=" + password + ", birth="
-				+ birth + ", email=" + email + ", sex=" + sex + ", rank=" + rank + "]";
+				+ birth + ", email=" + email + ", sex=" + sex + ", rank=" + rank + ", phone=" + phone + "]";
 	}
 	public int getId() {
 		return id;
@@ -88,6 +89,14 @@ public class UserBean {
 	}
 	public void setRank(String rank) {
 		this.rank = rank;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 }

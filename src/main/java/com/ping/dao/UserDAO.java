@@ -1,9 +1,11 @@
 package com.ping.dao;
 
-import com.ping.formBean.RegisterLoginFormBean;
+
 import com.ping.model.UserBean;
 
 public interface UserDAO {
-	public UserBean user(RegisterLoginFormBean formBean);
-	public UserBean userFromAccount(String account);
+	public UserBean selectUserFromAccountPassword(UserBean formBean);
+	public UserBean selectUserFromAccount(String account);
+	public UserBean update(UserBean userBean);
+	public UserBean insert(UserBean userBean);
 }

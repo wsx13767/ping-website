@@ -1,4 +1,4 @@
-package com.ping.inter;
+package com.ping.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,13 +18,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 			response.sendRedirect("views");
 			return false;
 		}
-		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout")) {
+		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout") || uri.endsWith("/register")) {
 			return true;
 		}
 		if (request.getSession().getAttribute("sessionAccount") != null) {
 			return true;
 		}
-		response.sendRedirect("registerLogin");
+		response.sendRedirect("/ping-website/views/registerLogin");
 		return false;
 	}
 
