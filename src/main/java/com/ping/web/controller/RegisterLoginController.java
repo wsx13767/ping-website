@@ -39,7 +39,8 @@ public class RegisterLoginController {
 			return "loginFail";
 		}
 		if (service.login(formBean)) {
-			session.setAttribute("sessionAccount", formBean.getAccount());
+			UserBean user = service.userInfo(formBean.getAccount());
+			session.setAttribute("sessionUser", user);
 			return "loginSuccess";
 		} else {
 			error.put("fail", "Your account and password are error !!!");
@@ -49,7 +50,7 @@ public class RegisterLoginController {
 	}
 	@RequestMapping(value="/logout", method = RequestMethod.POST)
 	public String logout(HttpSession session, HttpServletResponse res) {
-		session.removeAttribute("sessionAccount");
+		session.removeAttribute("sessionUser");
 		return "logout";
 	}
 	

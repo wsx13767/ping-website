@@ -14,14 +14,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 		String uri = request.getRequestURI();
 		System.out.println(uri);
 		
-		if (uri.endsWith("/registerLogin") && request.getSession().getAttribute("sessionAccount") != null) {
+		if (uri.endsWith("/registerLogin") && request.getSession().getAttribute("sessionUser") != null) {
 			response.sendRedirect("views");
 			return false;
 		}
 		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout") || uri.endsWith("/register")) {
 			return true;
 		}
-		if (request.getSession().getAttribute("sessionAccount") != null) {
+		if (request.getSession().getAttribute("sessionUser") != null) {
 			return true;
 		}
 		response.sendRedirect("/ping-website/views/registerLogin");

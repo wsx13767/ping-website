@@ -113,14 +113,33 @@ $(document).ready(function() {
 			$( this ).removeClass( "ui-state-hover" );
 		}
 	);
-//	if (location.href.endsWith(registerLogin)) {
-//		$("#registerLogin").show();
-//		$("#logout").hide();
-//	} else {
-//		$("#registerLogin").hide();
-//		$("#logout").show();
-//	}
+	
+	$('input[name="kind"]').change(function() {
+		var result = $('input[name="kind"]:checked').val();
+		if (result == "food") {
+			$("fieldset").attr("disabled","true");
+			$('input[name="suger"]').removeAttr("checked");
+			$('input[name="size"]').removeAttr("checked");
+			$('input[name="ice"]').removeAttr("checked");
+		} else if (result == "drink") {
+			$("fieldset").removeAttr("disabled")
+		}
+	});
+
 });
+
+function resetOrder() {
+	$('input[name="title"]').val("");
+	$('input[name="maxcount"]').val("");
+	$('input[name="itemName"]').val("");
+	$('textarea[name="itemInfo"]').val("");
+	$('input[name="kind"]').removeAttr("checked");
+	$('input[name="suger"]').removeAttr("checked");
+	$('input[name="size"]').removeAttr("checked");
+	$('input[name="ice"]').removeAttr("checked");
+}
+
+
 function logout() {
 	$("#logout").submit();
 }
