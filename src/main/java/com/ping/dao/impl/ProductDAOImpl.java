@@ -1,7 +1,10 @@
 package com.ping.dao.impl;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
 
 import com.ping.dao.ProductDAO;
@@ -26,6 +29,9 @@ public class ProductDAOImpl implements ProductDAO {
 		ProductBean obj = null;
 		try {
 			session = this.getSession();
+			Query<Long> count = session.createQuery("SELECT COUNT(*) FROM ProductBean", Long.class);
+			productBean.setId(Integer.valueOf(count.uniqueResult().toString()).intValue() + 1);
+			productBean.setStatus("open");
 			session.save(productBean);
 			obj = productBean;
 		} catch (HibernateException e) {
@@ -44,6 +50,20 @@ public class ProductDAOImpl implements ProductDAO {
 	public ProductBean delete(ProductBean productBean) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public List<ProductBean> selectForList() {
+		Session session = null;
+		List<ProductBean> obj = null;
+		try {
+			session = this.getSession();
+			Query<ProductBean> query = session.createQuery("From ProductBean where STATUS = ?", ProductBean.class);
+			query.setParameter(0, "open");
+			obj = query.getResultList();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		return obj;
 	}
 
 }

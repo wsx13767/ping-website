@@ -23,6 +23,9 @@
         <property name="hibernate.connection.username">AA</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
         <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">true</property>
         <mapping class="com.ping.model.UserBean"/>
+        <mapping class="com.ping.model.OrderBean"/>
+        <mapping class="com.ping.model.ProductBean"/>
     </session-factory>
 </hibernate-configuration>

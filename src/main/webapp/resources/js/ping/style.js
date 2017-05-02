@@ -114,17 +114,17 @@ $(document).ready(function() {
 		}
 	);
 	
-	$('input[name="kind"]').change(function() {
-		var result = $('input[name="kind"]:checked').val();
-		if (result == "food") {
-			$("fieldset").attr("disabled","true");
-			$('input[name="suger"]').removeAttr("checked");
-			$('input[name="size"]').removeAttr("checked");
-			$('input[name="ice"]').removeAttr("checked");
-		} else if (result == "drink") {
-			$("fieldset").removeAttr("disabled")
-		}
-	});
+//	$('input[name="kind"]').change(function() {
+//		var result = $('input[name="kind"]:checked').val();
+//		if (result == "food") {
+//			$("fieldset").attr("disabled","true");
+//			$('input[name="suger"]').removeAttr("checked");
+//			$('input[name="size"]').removeAttr("checked");
+//			$('input[name="ice"]').removeAttr("checked");
+//		} else if (result == "drink") {
+//			$("fieldset").removeAttr("disabled")
+//		}
+//	});
 
 });
 

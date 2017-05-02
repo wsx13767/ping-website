@@ -27,9 +27,8 @@ public class OrderDAOImpl implements OrderDAO {
 		OrderBean obj = null;
 		try {
 			session = this.getSession();
-//			Query<Integer> count = session.createQuery("select count(*) from OrderBean", Integer.class);
-//			orderBean.setId(Integer.valueOf(count.uniqueResult().toString()).intValue() + 1);
-			orderBean.setId(1);
+			Query<Integer> count = session.createQuery("select count(*) from OrderBean", Integer.class);
+			orderBean.setId(Integer.valueOf(count.uniqueResult().toString()).intValue() + 1);
 			session.save(orderBean);
 			obj = orderBean;
 		} catch (HibernateException e) {

@@ -8,32 +8,32 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="ORDERS")
-public class OrderBean {
+@Table(name="CART")
+public class CartBean {
 	@Id
 	@Column(name="ID")
 	private int id;
-	@Column(name="PRODUCT_ID")
-	private int productId;
 	@Column(name="USER_ID")
 	private int userId;
+	@Column(name="PRODUCT_ID")
+	private int productId;
 	@Column(name="COUNT")
 	private int count;
+	@Column(name="DATE_TIME")
+	private Date dateTime;
 	@Column(name="STATUS")
 	private String status;
-	@Column(name="BUILD_DATE_TIME")
-	private Date date;
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public int getProductId() {
 		return productId;
@@ -47,18 +47,16 @@ public class OrderBean {
 	public void setCount(int count) {
 		this.count = count;
 	}
+	public Date getDateTime() {
+		return dateTime;
+	}
+	public void setDateTime(Date dateTime) {
+		this.dateTime = dateTime;
+	}
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
-	
 }

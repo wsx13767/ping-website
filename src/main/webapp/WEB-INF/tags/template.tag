@@ -58,7 +58,7 @@
 						<li><a href="<c:url value="/views/record"/>">購買紀錄</a></li>
 					</ul>
 				</li>
-				<li class="bar-inline"><a>所有商品</a></li>
+				<li class="bar-inline"><a href="<c:url value="/views/products"/>">所有商品</a></li>
 				<li class="bar-inline"><a href="<c:url value="/views/cart"/>">購物車</a></li>
 			</ul>
 			<ul class="bar-ul bar-search">
@@ -81,7 +81,7 @@
 						<div>
 							<ul style="width:130px;" id="menu">
 								<li><div><a href="<c:url value="/views/user"/>">個人資訊<span class="ui-icon ui-icon-person"></span></a></div></li>
-								<li data-toggle="modal" data-target="#build-order"><div>建立團購<span class="ui-icon ui-icon-cart"></span></div></li>
+								<li data-toggle="modal" data-target="#build-order"><div>新增產品<span class="ui-icon ui-icon-cart"></span></div></li>
 								<li><div>介紹<span class="ui-icon ui-icon-comment"></span></div></li>
 								<li><div>聯絡我們<span class="ui-icon ui-icon-mail-closed"></span></div></li>
 							</ul>
@@ -96,10 +96,10 @@
 	</div>
 	<div class="modal fade" role="dialog" id="build-order" data-backdrop="false">
 		<div class="modal-dialog">
-			<form class="form-horizontal" action="<c:url value="/orderBuild"/>" method="post">
+			<form class="form-horizontal" action="<c:url value="/views/products/productAdd"/>" method="post">
 				<div class="modal-content panel panel-default">
       				<div class="modal-header panel-heading">
-        				<h2 class="modal-title">建立團購</h2>
+        				<h2 class="modal-title">新增產品</h2>
       				</div>
       				<div class="modal-body">
 	      				<div class="form-group">
@@ -108,7 +108,11 @@
 	      				</div>
 	      				<div class="form-group">
 	      					<label class="col-md-2 control-label">數量</label>
-	      					<div class="col-md-2"><input name="maxCount" type="number" class="form-control"></div>
+	      					<div class="col-md-2"><input name="count" type="number" class="form-control"></div>
+	      				</div>
+	      				<div class="form-group">
+	      					<label class="col-md-2 control-label">價錢</label>
+	      					<div class="col-md-2"><input name="money" type="number" class="form-control"></div>
 	      				</div>
 						<div class="form-group">
 							<label class="col-md-2 control-label">商品名稱</label>
@@ -129,61 +133,11 @@
 								<label class="radio-inline">
 									<input type="radio" name="kind" value="drink">飲品
 								</label>
+								<label class="radio-inline">
+									<input type="radio" name="kind" value="other">其他
+								</label>
 							</div>
 						</div>
-						<fieldset disabled>
-							<div class="form-group">
-								<label class="col-md-2 control-label">甜度</label> 
-								<div class="col-md-7">
-									<label class="radio-inline">
-										<input type="radio" name="suger" value="normal">正常
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="suger" value="half">半糖
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="suger" value="micro">微糖
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="suger" value="no">無糖
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-2 control-label">大小</label> 
-								<div class="col-md-7">
-									<label class="radio-inline">
-										<input type="radio" name="size" value="big">大
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="size" value="middle">中
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="size" value="small">小
-									</label>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-md-2 control-label">冰塊</label> 
-								<div class="col-md-7">
-									<label class="radio-inline">
-										<input type="radio" name="ice" value="full">正常
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="ice" value="less">少冰
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="ice" value="no">去冰
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="ice" value="normal">常溫
-									</label>
-									<label class="radio-inline">
-										<input type="radio" name="ice" value="hot">熱
-									</label>
-								</div>
-							</div>
-						</fieldset>
       				</div>
       				<div class="modal-footer">
         				<button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetOrder()">Close</button>

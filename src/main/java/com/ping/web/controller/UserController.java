@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ping.model.UserBean;
 import com.ping.service.UserService;
 
 @Controller
@@ -18,7 +19,8 @@ public class UserController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getPage(HttpSession session, Model model) {
-		model.addAttribute("user", userService.userInfo(session.getAttribute("sessionAccount").toString()));
+		UserBean user = (UserBean) session.getAttribute("sessionUser");	
+		model.addAttribute("user", userService.userInfo(user.getAccount()));
 		return "/jsp/user";
 	}
 }
