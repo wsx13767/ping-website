@@ -65,5 +65,20 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 		return obj;
 	}
+	@Override
+	public ProductBean deleteFromId(int id) {
+		Session session = null;
+		try {
+			session = this.getSession();
+			Query<ProductBean> query = session.createQuery("From ProductBean where ID = ?", ProductBean.class);
+			query.setParameter(0, id);
+			ProductBean obj = query.uniqueResult();
+			obj.setStatus("close");
+			session.update(obj);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

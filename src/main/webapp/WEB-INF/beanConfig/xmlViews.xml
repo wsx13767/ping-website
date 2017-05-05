@@ -26,6 +26,14 @@
 	</bean>
 	
 	<bean id="addSuccess" class="org.springframework.web.servlet.view.RedirectView">
-		<property name="url" value="/WEB-INF/views/jsp/products.jsp"/>
+		<property name="contextRelative" value="true"/>
+		<property name="url" value="/views/products"/>
 	</bean>
+	<bean id="deleteSuccess" class="org.springframework.web.servlet.view.RedirectView">
+		<property name="contextRelative" value="true"/>
+		<property name="url" value="/views/products"/>
+	</bean>
+	
+	
+	
 </beans>

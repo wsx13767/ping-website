@@ -9,5 +9,6 @@ public interface ProductDAO {
 	public ProductBean insert(ProductBean productBean);
 	public ProductBean update(ProductBean productBean);
 	public ProductBean delete(ProductBean productBean);
+	public ProductBean deleteFromId(int id);
 	public List<ProductBean> selectForList();
 }

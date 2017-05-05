@@ -23,7 +23,8 @@ public class HibernateUtil {
 		try {
 			Locale.setDefault(Locale.TAIWAN);
 			StandardServiceRegistry serviceRegistry =
-					new StandardServiceRegistryBuilder().configure("/com/ping/model/hibernate/hibernate.cfg.xml").build();
+					new StandardServiceRegistryBuilder().configure().build();
+//					new StandardServiceRegistryBuilder().configure("/com/ping/model/hibernate/hibernate.cfg.xml").build();
 			return new MetadataSources(
 					serviceRegistry).buildMetadata().buildSessionFactory();
 		} catch (Exception e) {

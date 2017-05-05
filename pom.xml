@@ -5,7 +5,9 @@
 	<artifactId>ping-website</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 		<dependency>
@@ -37,12 +39,20 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>4.3.7.RELEASE</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>ojdbc6</artifactId>
 			<version>11.2.0.3</version>
 		</dependency>
-
+ -->
+ <!-- https://mvnrepository.com/artifact/oracle/ojdbc6 -->
+<dependency>
+    <groupId>oracle</groupId>
+    <artifactId>ojdbc6</artifactId>
+    <version>11.2.0.3</version>
+</dependency>
+ 
 <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 <dependency>
     <groupId>org.hibernate</groupId>
@@ -58,7 +68,12 @@
 
 
 	</dependencies>
-
+<repositories>
+    <repository>
+      <id>maven2</id>
+      <url>	http://www.datanucleus.org/downloads/maven2/</url>
+    </repository>
+  </repositories>
 	<build>
 		<plugins>
 			<plugin>
@@ -68,6 +83,7 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+					<outputEncoding>UTF-8</outputEncoding>
 				</configuration>
 			</plugin>
 		</plugins>

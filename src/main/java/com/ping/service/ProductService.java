@@ -28,4 +28,9 @@ public class ProductService {
 	public List<ProductBean> selectForList() {
 		return DAO.selectForList();
 	}
+	
+	public void delete(int id) {
+		DAO.deleteFromId(id);
+	}
+	
 }
