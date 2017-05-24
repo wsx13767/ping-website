@@ -18,7 +18,7 @@ import org.hibernate.HibernateException;
  */
 @WebFilter(urlPatterns={"/*"})
 public class OpenSessionInViewFilter implements Filter {
-	private FilterConfig fConfig;
+//	private FilterConfig fConfig;
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
@@ -43,7 +43,7 @@ public class OpenSessionInViewFilter implements Filter {
 	 */
 	@Override
 	public void init(FilterConfig fConfig) throws ServletException {
-		this.fConfig = fConfig;
+//		this.fConfig = fConfig;
 	}
 	
 	/**

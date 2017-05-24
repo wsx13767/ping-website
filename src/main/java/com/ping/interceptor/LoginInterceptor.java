@@ -12,10 +12,10 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		String uri = request.getRequestURI();
-		System.out.println(uri);
+//		System.out.println(uri);
 		
 		if (uri.endsWith("/registerLogin") && request.getSession().getAttribute("sessionUser") != null) {
-			response.sendRedirect("views");
+			request.getRequestDispatcher("/").forward(request, response);
 			return false;
 		}
 		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout") || uri.endsWith("/register")) {
@@ -24,7 +24,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if (request.getSession().getAttribute("sessionUser") != null) {
 			return true;
 		}
-		response.sendRedirect("/ping-website/views/registerLogin");
+//		response.sendRedirect("/views/registerLogin");
+		request.getRequestDispatcher("/views/registerLogin").forward(request, response);
 		return false;
 	}
 

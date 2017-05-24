@@ -26,7 +26,7 @@
 		<div class="container-fluid">
 			<div class="top-up">
 				<div class="row">
-					<div class="col-md-4"><a href="/ping-website/">Welcome</a></div>
+					<div class="col-md-4"><a href="<c:url value="/" />">Welcome</a></div>
 					<div class="col-md-5"></div>
 					<div class="col-md-1">
 					<% if (session.getAttribute("sessionUser") == null) { %>
@@ -147,7 +147,6 @@
     		</form>
   		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
-	
 	
 	
 </body>

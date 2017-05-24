@@ -1,15 +1,12 @@
 package com.ping.model;
 
-import java.util.List;
-import java.util.Locale;
+
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.Session;
 
-import com.ping.model.hibernate.HibernateUtil;
 
 @Entity
 @Table(name="USERS")

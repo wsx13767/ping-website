@@ -57,7 +57,7 @@ public class ProductDAOImpl implements ProductDAO {
 		List<ProductBean> obj = null;
 		try {
 			session = this.getSession();
-			Query<ProductBean> query = session.createQuery("From ProductBean where STATUS = ?", ProductBean.class);
+			Query<ProductBean> query = session.createQuery("From ProductBean where STATUS = ? order by ID", ProductBean.class);
 			query.setParameter(0, "open");
 			obj = query.getResultList();
 		} catch (HibernateException e) {

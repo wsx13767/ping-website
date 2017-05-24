@@ -62,9 +62,10 @@ public class UserDAOImpl implements UserDAO {
 			
 			userBean.setId(Integer.valueOf(count.uniqueResult().toString()).intValue() + 1);
 			session.save(userBean);
+			obj = userBean;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return obj;
 	}
 }
