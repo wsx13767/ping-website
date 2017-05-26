@@ -26,24 +26,24 @@
 		<div class="container-fluid">
 			<div class="top-up">
 				<div class="row">
-					<div class="col-md-4"><a href="<c:url value="/" />">Welcome</a></div>
-					<div class="col-md-5"></div>
-					<div class="col-md-1">
+					<div class="col-md-4"><a href="<c:url value="/" />"><spring:message code="tamplate.welcome"/></a></div>
+					<div class="col-md-4"></div>
+					<div class="col-md-2">
 					<% if (session.getAttribute("sessionUser") == null) { %>
-						<a id="registerLogin" href="<c:url value="/views/registerLogin"/>">註冊|登入</a>
+						<a id="registerLogin" href="<c:url value="/views/registerLogin"/>"><spring:message code="tamplate.registerLogin"/></a>
 					<%	} else if (session.getAttribute("sessionUser") != null) { %>		
 						<form id="logout" action="<c:url value="/views/registerLogin/logout"/>"  method="post">
 							<a href="#" onclick="logout()">
-								登出
+								<spring:message code="template.logout"/>
 							</a>
 						</form>
 					<% } %>
 					</div>
-					<div class="col-md-2">
-						<select>
-							<option>選擇語言</option>
-							<option>English</option>
-							<option>中文</option>
+					<div class="col-md-2">	
+						<select id="languageSelect">
+							<option value=""><spring:message code="tamplate.languageSelect"/></option>
+							<option value="en_US">English</option>
+							<option value="zh_TW">中文</option>
 						</select>
 					</div>
 				</div>
@@ -52,24 +52,26 @@
 		<div class="bar">
 			<ul class="bar-ul">
 				<li class="dropdown bar-inline">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">訂購資訊<b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="template.orderInfo" /><b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">訂單管理</a></li>
-						<li><a href="<c:url value="/views/record"/>">購買紀錄</a></li>
+						<li><a href="#"><spring:message code="template.orderManagement"/></a></li>
+						<li><a href="<c:url value="/views/record"/>"><spring:message code="template.record"/></a></li>
 					</ul>
 				</li>
-				<li class="bar-inline"><a href="<c:url value="/views/products"/>">所有商品</a></li>
-				<li class="bar-inline"><a href="<c:url value="/views/cart"/>">購物車</a></li>
+				<li class="bar-inline"><a href="<c:url value="/views/products"/>"><spring:message code="template.allItems"/></a></li>
+				<li class="bar-inline"><a href="<c:url value="/views/cart"/>"><spring:message code="template.cart"/></a></li>
 			</ul>
 			<ul class="bar-ul bar-search">
 				<li class="bar-inline">
-					<input type="text" placeholder="搜尋商品">
+					<input type="text" placeholder="<spring:message code="template.searchItem"/>">
 				</li>
-				<li class="bar-inline"><button class="btn btn-primary">搜尋</button></li>
+				<li class="bar-inline"><button class="btn btn-primary"><spring:message code="template.search"/></button></li>
 			</ul>
 		</div>
 	</header>
-	
+	<form id="languageForm">
+		<input name="language" type="hidden">
+	</form>
 	<%-- 內容 --%>
 	<div class="container">
 		<div class="row"><div class="col-md-12" style="height:20px;"></div></div>
@@ -77,13 +79,13 @@
 				<div class="col-md-2">
 				<%if (session.getAttribute("sessionUser") != null) { %>
 					<div class="menu-box">
-						<div>Menu</div>
+						<div><spring:message code="template.menu"/></div>
 						<div>
 							<ul style="width:130px;" id="menu">
-								<li><div><a href="<c:url value="/views/user"/>">個人資訊<span class="ui-icon ui-icon-person"></span></a></div></li>
-								<li data-toggle="modal" data-target="#build-order"><div>新增產品<span class="ui-icon ui-icon-cart"></span></div></li>
-								<li><div>介紹<span class="ui-icon ui-icon-comment"></span></div></li>
-								<li><div>聯絡我們<span class="ui-icon ui-icon-mail-closed"></span></div></li>
+								<li><div><a href="<c:url value="/views/user"/>"><spring:message code="template.personalInfo"/><span class="ui-icon ui-icon-person"></span></a></div></li>
+								<li data-toggle="modal" data-target="#build-order"><div><spring:message code="template.increaseItem"/><span class="ui-icon ui-icon-cart"></span></div></li>
+								<li><div><spring:message code="template.introduction"/><span class="ui-icon ui-icon-comment"></span></div></li>
+								<li><div><spring:message code="template.contactUs"/><span class="ui-icon ui-icon-mail-closed"></span></div></li>
 							</ul>
 						</div>
 					</div>
@@ -99,49 +101,49 @@
 			<form class="form-horizontal" action="<c:url value="/views/products/productAdd"/>" method="post">
 				<div class="modal-content panel panel-default">
       				<div class="modal-header panel-heading">
-        				<h2 class="modal-title">新增產品</h2>
+        				<h2 class="modal-title"><spring:message code="template.increaseItem"/></h2>
       				</div>
       				<div class="modal-body">
 	      				<div class="form-group">
-	      					<label class="col-md-2 control-label">標題</label>
+	      					<label class="col-md-2 control-label"><spring:message code="template.title"/></label>
 	      					<div class="col-md-8"><input name="title" type="text" class="form-control"></div>
 	      				</div>
 	      				<div class="form-group">
-	      					<label class="col-md-2 control-label">數量</label>
+	      					<label class="col-md-2 control-label"><spring:message code="template.count"/></label>
 	      					<div class="col-md-2"><input name="count" type="number" class="form-control"></div>
 	      				</div>
 	      				<div class="form-group">
-	      					<label class="col-md-2 control-label">價錢</label>
+	      					<label class="col-md-2 control-label"><spring:message code="template.price"/></label>
 	      					<div class="col-md-2"><input name="money" type="number" class="form-control"></div>
 	      				</div>
 						<div class="form-group">
-							<label class="col-md-2 control-label">商品名稱</label>
+							<label class="col-md-2 control-label"><spring:message code="template.itemName"/></label>
 							<div class="col-md-4"><input name="itemName" type="text" class="form-control"></div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-2 control-label">介紹</label>
+							<label class="col-md-2 control-label"><spring:message code="template.introduction"/></label>
 							<div class="col-md-4">
 								<textarea name="itemInfo" rows="6" cols="30" class="form-control" style="resize: none;"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-md-2 control-label">種類</label>
+							<label class="col-md-2 control-label"><spring:message code="template.kinds"/></label>
 							<div class="col-md-7">
 								<label class="radio-inline">
-									<input type="radio" name="kind" value="food">食品
+									<input type="radio" name="kind" value="food"><spring:message code="template.food"/>
 								</label>
 								<label class="radio-inline">
-									<input type="radio" name="kind" value="drink">飲品
+									<input type="radio" name="kind" value="drink"><spring:message code="template.drink"/>
 								</label>
 								<label class="radio-inline">
-									<input type="radio" name="kind" value="other">其他
+									<input type="radio" name="kind" value="other"><spring:message code="template.other"/>
 								</label>
 							</div>
 						</div>
       				</div>
       				<div class="modal-footer">
         				<button type="button" class="btn btn-default" data-dismiss="modal" onclick="resetOrder()">Close</button>
-        				<button type="submit" class="btn btn-primary">送出</button>
+        				<button type="submit" class="btn btn-primary"><spring:message code="template.submit"/></button>
       				</div>
     			</div><!-- /.modal-content -->
     		</form>

@@ -24,21 +24,22 @@
 	
 	
 	<mvc:interceptors>
+		<ref bean="localeChangeInterceptor"/>
 		<mvc:interceptor>
 			<mvc:mapping path="/views"/>
 			<mvc:mapping path="/views/**"/>
 			<bean class="com.ping.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
 	<bean
 		class="org.springframework.web.servlet.view.XmlViewResolver">
 		<property name="location" value="/WEB-INF/beanConfig/xmlViews.xml" />
 		<property name="order" value="3" />
 	</bean>
-	
+
 	<!-- spring maping 靜態資源路徑 -->
 	<mvc:resources location="/resources/" mapping="/resources/**" />
-
-	<import resource="/dbSourceConfig.xml"/>
+	
+	<import resource="i18nConfig.xml"/>
+	<import resource="dbSourceConfig.xml"/>
 </beans>

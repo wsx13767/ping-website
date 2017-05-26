@@ -125,7 +125,11 @@ $(document).ready(function() {
 //			$("fieldset").removeAttr("disabled")
 //		}
 //	});
-
+	$("#languageSelect").change(function() {
+		$("input[name='language']").val($("#languageSelect").val());
+		$("#languageForm").submit();
+		console.log($("#languageSelect").val());
+	});
 });
 
 function resetOrder() {

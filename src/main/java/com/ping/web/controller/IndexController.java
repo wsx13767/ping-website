@@ -1,7 +1,9 @@
 package com.ping.web.controller;
 
 
+import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,6 +31,7 @@ public class IndexController {
     
     @RequestMapping(value="/test", method = RequestMethod.POST)
 	public void test(HttpServletResponse res) {
+
 		System.out.println("test");
 		Gson gson = new Gson();
 		String json = gson.toJson(service.selectForList());
