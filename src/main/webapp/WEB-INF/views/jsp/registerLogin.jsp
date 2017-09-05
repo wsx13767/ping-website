@@ -80,13 +80,17 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary" data-dismiss="modal"><spring:message code="registerLogin.saveChange"/></button>
+											<button type="button" class="btn btn-primary" ><spring:message code="registerLogin.saveChange"/></button>
 										</div>
 									</div><!-- /.modal-content -->
 								</div><!-- /.modal-dialog -->
 							</div><!-- /.modal -->
-							<button type="button" class="btn btn-default" data-toggle="modal" data-target="#register-dialog"><spring:message code="registerLogin.detail"/></button>
-							<button type="submit" class="btn btn-success"><spring:message code="registerLogin.register"/></button>
+							<button type="button" class="btn btn-default" data-toggle="modal" data-target="#register-dialog">
+								<spring:message code="registerLogin.detail"/>
+							</button>
+							<button type="submit" class="btn btn-success" data-dismiss="modal">
+								<spring:message code="registerLogin.register"/>
+							</button>
 						</form>
 					</div>
 				</div>

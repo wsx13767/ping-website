@@ -1,16 +1,23 @@
 package com.ping.util;
 
+
+import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import com.ping.formBean.RegisterLoginFormBean;
 
 public class UserCheck {
 	private boolean result;
+	private static Map<String, String> errorMap;
+	
 	
 	public boolean getResult() {
 		return result;
 	}
-	public UserCheck(RegisterLoginFormBean formBean, Map<String, String> error, String type) {	
+	
+	public UserCheck(RegisterLoginFormBean formBean, Map<String, String> error, String type, Locale language) {
+		this.setErrorMap(language);
 		switch (type) {
 			case "login":
 				loginCheck(formBean, error);
@@ -20,18 +27,17 @@ public class UserCheck {
 				break;
 		}
 	}
-	
 
 	private void loginCheck(RegisterLoginFormBean formBean, Map<String, String> error) {
-		String account = formBean.getAccount().replaceAll("\\s+", "").replaceAll("　", "");
-		String password = formBean.getPassword().replaceAll("\\s+", "");
+		String account = this.replaceIlleagelValue(formBean.getAccount());
+		String password = this.replaceIlleagelValue(formBean.getPassword());
 		
 		if (account == null || "".equals(account) || password == null || "".equals(password)) {
 			if (account == null || "".equals(account)) {
-				error.put("account", "Account is null !!!!");
+				error.put("account", errorMap.get("account"));
 			}
 			if (password == null || "".equals(password)) {
-				error.put("password", "Password is null !!!!");
+				error.put("password", errorMap.get("password"));
 			}
 			this.result = false;
 		} else {
@@ -41,11 +47,11 @@ public class UserCheck {
 	
 	
 	private void registerCheck(RegisterLoginFormBean formBean, Map<String, String> error) {
-		String account = formBean.getAccount().replaceAll("\\s+", "").replaceAll("　", "");
-		String password = formBean.getPassword().replaceAll("\\s+", "");
-		String name = formBean.getName() == null ? null : formBean.getName().replaceAll("\\s+", "").replaceAll("　", "");
-		String email = formBean.getEmail() == null ? null : formBean.getEmail().replaceAll("\\s+", "").replaceAll("　", "");
-		String phone = formBean.getPhone() == null ? null : formBean.getPhone().replaceAll("\\s+", "").replaceAll("　", "");
+		String account = this.replaceIlleagelValue(formBean.getAccount());
+		String password = this.replaceIlleagelValue(formBean.getPassword());
+		String name = this.replaceIlleagelValue(formBean.getName());
+		String email = this.replaceIlleagelValue(formBean.getEmail());
+		String phone = this.replaceIlleagelValue(formBean.getPhone());
 		String sex = formBean.getSex();
 
 		if (account == null || "".equals(account) ||
@@ -55,22 +61,22 @@ public class UserCheck {
 				phone == null || "".equals(phone) ||
 				sex == null || "".equals(sex)) {
 			if (account == null || "".equals(account)) {
-				error.put("registerAccount", "Account is null !!!!");
+				error.put("registerAccount", errorMap.get("registerAccount"));
 			}
 			if (password == null || "".equals(password)) {
-				error.put("registerPassword", "Password is null !!!!");
+				error.put("registerPassword", errorMap.get("registerPassword"));
 			}
 			if (name == null || "".equals(name)) {
-				error.put("name", "Name is null !!!!");
+				error.put("name", errorMap.get("name"));
 			}
 			if (email == null || "".equals(name)) {
-				error.put("email", "Email is null !!!!");
+				error.put("email", errorMap.get("email"));
 			}
 			if (phone == null || "".equals(phone)) {
-				error.put("phone", "Phone is null !!!!");
+				error.put("phone", errorMap.get("phone"));
 			}
 			if (sex == null || "".equals(sex)) {
-				error.put("sex", "Sex is not select !!!!");
+				error.put("sex", errorMap.get("sex"));
 			}
 			this.result = false;
 		} else {
@@ -78,6 +84,19 @@ public class UserCheck {
 		}
 	}
 	
+	private String replaceIlleagelValue(String chr) {
+		return (chr == null ? null : chr.replaceAll("\\s+", "").replaceAll("　", ""));
+	}
 	
-	
+	private void setErrorMap(Locale language) {
+		errorMap = new HashMap<String, String>();
+		errorMap.put("account", ResourceBundleProperties.getString(language.toString() ,"error.accountIsNull"));
+		errorMap.put("password", ResourceBundleProperties.getString(language.toString() ,"error.passwordIsNull"));
+		errorMap.put("registerAccount", ResourceBundleProperties.getString(language.toString() ,"error.registerAccountIsNull"));
+		errorMap.put("registerPassword", ResourceBundleProperties.getString(language.toString() ,"error.registerPasswordIsNull"));
+		errorMap.put("name", ResourceBundleProperties.getString(language.toString() ,"error.nameIsNull"));
+		errorMap.put("email", ResourceBundleProperties.getString(language.toString() ,"error.emailIsNull"));
+		errorMap.put("phone", ResourceBundleProperties.getString(language.toString() ,"error.phoneIsNull"));
+		errorMap.put("sex", ResourceBundleProperties.getString(language.toString() ,"error.sexIsNull"));
+	}
 }

@@ -13,7 +13,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 			throws Exception {
 		String uri = request.getRequestURI();
 //		System.out.println(uri);
-		
 		if (uri.endsWith("/registerLogin") && request.getSession().getAttribute("sessionUser") != null) {
 			request.getRequestDispatcher("/").forward(request, response);
 			return false;
