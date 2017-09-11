@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/views/record")
 public class RecordController {
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST})
 	public String getPage(HttpServletRequest req, HttpServletResponse res) {
 		return "/jsp/record";
 	}
@@ -24,10 +24,8 @@ public class RecordController {
 		try {
 			req.getRequestDispatcher("/views/record").forward(req, res);
 		} catch (ServletException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "/jsp/record";

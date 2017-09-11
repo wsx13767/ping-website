@@ -48,7 +48,7 @@
 				url:"test",
 				mtype:"POST",
 				datatype: "json",
-				styleUI : 'Bootstrap',
+			//	styleUI : 'Bootstrap',
 				colModel: [
 					{label:'ID', name:'id'},
 					{label:'種類', name:'kind'},
@@ -68,8 +68,9 @@
 				viewrecords: true,
 				caption: "jqGrid with listing"
 			});
-			
-		//	$("#test").setGridParam({url:"products/test"}).trigger('reloadGrid');
+			$('#test').navGrid('#jqGridPager',
+	                { edit: false, add: false, del: false, search: true, refresh: true, view: false, position: "left", cloneToTop: true });
+			$("#test").setGridParam({url:"products/test"}).trigger('reloadGrid');
 		}
 	</script>
 

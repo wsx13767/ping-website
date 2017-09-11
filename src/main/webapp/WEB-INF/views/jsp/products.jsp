@@ -5,12 +5,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <t:template>
 	<jsp:body>
+	<script src="<c:url value="/resources/js/grid/grid.locale-tw.js" />"></script>
+	<script src="<c:url value="/resources/js/grid/jquery.jqGrid.min.js" />"></script>
+	<link rel="stylesheet" href="<c:url value="/resources/css/grid/ui.jqgrid-bootstrap.css"/>"> 
 	<script src="<c:url value="/resources/js/ping/products.js"/>"></script>
 		<h1>所有商品</h1>
 		<br/>
 		<form id="tooo" action="<c:url value="/views/products/deleteProduct"/>" method="post">
 			<input type="hidden" name="id" id="id">
 		</form>
+		<!-- 
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr class="info">
@@ -33,5 +37,10 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		 -->
+		 <div style="width: 100%;">
+		 <table id="productsGrid"></table>
+		<div id="productsGridPager"></div>
+		</div>
 	</jsp:body>
 </t:template>

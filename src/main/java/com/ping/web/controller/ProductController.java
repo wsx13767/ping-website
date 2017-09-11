@@ -29,6 +29,22 @@ public class ProductController {
 		return "/jsp/products";
 	}
 	
+	@RequestMapping(value="/showAllProducts", method = RequestMethod.POST)
+	public void showAllProducts(HttpServletResponse res) {
+		System.out.println("showAllItem");
+		Gson gson = new Gson();
+		String productsInfo = gson.toJson(service.selectForList());
+		StringBuffer json = new StringBuffer("{\"rows\":"); 
+		json.append(productsInfo).append("}");
+		try {
+			res.getWriter().print(json.toString());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
     @RequestMapping(value="/productAdd", method = RequestMethod.POST)
     public String orderBuild(ProductFormBean formBean,HttpSession session) {
     	service.insert(formBean);

@@ -6,6 +6,7 @@
 <head>
 <title><jsp:invoke fragment="title" /></title>
 <link href="<c:url value="/resources/css/until/jquery-ui.css"/>" rel="stylesheet">
+<%-- --%>
 <link href="<c:url value="/resources/css/ping/style.css"/>" rel="stylesheet">
 <link href="<c:url value="/resources/css/ping/index.css"/>" rel="stylesheet">
 <script src="<c:url value="/resources/external/jquery/jquery.js"/>"></script>
@@ -19,7 +20,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 
-<script src="<c:url value="/resources/js/ping/style.js"/>"></script>
+<script src="<c:url value="/resources/js/ping/style.js"/>"></script> 
 </head>
 <body>
 	<header>

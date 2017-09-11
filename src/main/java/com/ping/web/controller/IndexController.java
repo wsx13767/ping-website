@@ -32,7 +32,7 @@ public class IndexController {
     @RequestMapping(value="/test", method = RequestMethod.POST)
 	public void test(HttpServletResponse res) {
 
-		System.out.println("test");
+//		System.out.println("test");
 		Gson gson = new Gson();
 		String json = gson.toJson(service.selectForList());
 		StringBuffer test = new StringBuffer("{\"rows\":");
