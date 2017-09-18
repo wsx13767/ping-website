@@ -34,7 +34,7 @@ public class RegisterLoginController {
 	public String getPage(HttpServletRequest request) {
 //		System.out.println();
 		language = RequestContextUtils.getLocale(request);
-		System.out.println(language);
+//		System.out.println(language);
 		return "/jsp/registerLogin";
 	}
 

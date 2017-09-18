@@ -27,9 +27,9 @@ $(document).ready(function() {
 			],
 		width:900,
 	//	height:120,
-		loadonce: true,
-		rowNum: 5,
-		rowList: [5, 10, 20, 30],
+		loadonce: false,
+	//	rowNum: 5,
+		//rowList: [5, 10, 20, 30],
 		pager: "#productsGridPager",
 		viewrecords: true,
 		caption: "商品"

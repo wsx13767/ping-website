@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="USERS")
-public class UserBean {
+public class UserBean implements Cloneable {
 	@Id
 	private int id;
 	private String name;
@@ -22,7 +22,10 @@ public class UserBean {
 	private String rank;
 	private String phone;
 	
-	
+	@Override
+	 public Object clone() throws CloneNotSupportedException {
+	  return super.clone();
+	 }
 	public static void main(String[] args) {
 //		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 //		session.beginTransaction();

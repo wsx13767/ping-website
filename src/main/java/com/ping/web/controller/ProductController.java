@@ -31,7 +31,6 @@ public class ProductController {
 	
 	@RequestMapping(value="/showAllProducts", method = RequestMethod.POST)
 	public void showAllProducts(HttpServletResponse res) {
-		System.out.println("showAllItem");
 		Gson gson = new Gson();
 		String productsInfo = gson.toJson(service.selectForList());
 		StringBuffer json = new StringBuffer("{\"rows\":"); 

@@ -14,7 +14,7 @@
 		<form id="tooo" action="<c:url value="/views/products/deleteProduct"/>" method="post">
 			<input type="hidden" name="id" id="id">
 		</form>
-		<!-- 
+		<!--  -->
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr class="info">
@@ -37,7 +37,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		 -->
+		
 		 <div style="width: 100%;">
 		 <table id="productsGrid"></table>
 		<div id="productsGridPager"></div>
