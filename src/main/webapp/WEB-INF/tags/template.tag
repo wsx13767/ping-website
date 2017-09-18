@@ -52,16 +52,34 @@
 		</div>
 		<div class="bar">
 			<ul class="bar-ul">
+				<!-- 所有商品 -->
+				<li class="bar-inline"><span class="ui-icon ui-icon-script"></span><a href="<c:url value="/views/products"/>"><spring:message code="template.allItems"/></a></li>
+				<!-- 訂單管理 -->
 				<li class="dropdown bar-inline">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message code="template.orderInfo" /><b class="caret"></b></a>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="ui-icon ui-icon-note"></span><spring:message code="template.orderManagement"/><b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="#"><spring:message code="template.orderManagement"/></a></li>
+						<!-- 訂購資訊 -->
+						<li><a href="#"><spring:message code="template.orderInfo" /></a></li>
+						<!-- 購買紀錄 -->
 						<li><a href="<c:url value="/views/record"/>"><spring:message code="template.record"/></a></li>
 					</ul>
 				</li>
-				<li class="bar-inline"><a href="<c:url value="/views/products"/>"><spring:message code="template.allItems"/></a></li>
-				<li class="bar-inline"><a href="<c:url value="/views/cart"/>"><spring:message code="template.cart"/></a></li>
+				<!-- 會員管理 -->
+				<li class="dropdown bar-inline">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="ui-icon ui-icon-person"></span><spring:message code="template.userManagement" /><b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<!-- 個人資訊 -->
+						<li><a href="<c:url value="/views/user"/>"><spring:message code="template.personalInfo"/></a></li>
+					</ul>
+				</li>
+				<!-- 介紹 -->
+				<li class="bar-inline"><a href="#"><span class="ui-icon ui-icon-comment"></span><spring:message code="template.introduction"/></a></li>
+				<!-- 聯絡我們 -->
+				<li class="bar-inline"><a href="#"><span class="ui-icon ui-icon-mail-closed"></span><spring:message code="template.contactUs"/></a></li>
+				<!-- 購物車 -->
+				<li class="bar-inline"><a href="<c:url value="/views/cart"/>"><span class="ui-icon ui-icon-cart"></span><spring:message code="template.cart"/></a></li>
 			</ul>
+			<!-- 搜尋bar -->
 			<ul class="bar-ul bar-search">
 				<li class="bar-inline">
 					<input type="text" placeholder="<spring:message code="template.searchItem"/>">
@@ -78,6 +96,7 @@
 		<div class="row"><div class="col-md-12" style="height:20px;"></div></div>
 		<div class="row">
 				<div class="col-md-2">
+				<%--
 				<%if (session.getAttribute("sessionUser") != null) { %>
 					<div class="menu-box">
 						<div><spring:message code="template.menu"/></div>
@@ -91,6 +110,7 @@
 						</div>
 					</div>
 				<% } %>
+				 --%>
 				</div>
 				<div class="col-md-10">
 					<jsp:doBody />
