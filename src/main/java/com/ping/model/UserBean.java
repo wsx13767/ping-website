@@ -2,9 +2,20 @@ package com.ping.model;
 
 
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.Session;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.GenericGenerators;
+import org.hibernate.query.Query;
+
+import com.ping.model.hibernate.HibernateUtil;
 
 
 
@@ -12,7 +23,9 @@ import javax.persistence.Table;
 @Table(name="USERS")
 public class UserBean implements Cloneable {
 	@Id
-	private int id;
+	@GeneratedValue(generator = "generateId")
+	@GenericGenerator(name = "generateId", strategy = "uuid")
+	private String id;
 	private String name;
 	private String account;
 	private String password;
@@ -27,14 +40,26 @@ public class UserBean implements Cloneable {
 	  return super.clone();
 	 }
 	public static void main(String[] args) {
-//		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-//		session.beginTransaction();
-//		System.out.println(session.load(UserBean.class, 1));
+		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		UserBean user = new UserBean();
+//		user.setId(0);
+		user.setBirth("1");
+		user.setAccount("qqqq");
+//		System.out.println(user.getId());
+//		session.geti
+		session.save(user);
+//		Query<UserBean> query = session.createQuery("from UserBean where account = ? and password = ?", UserBean.class);
+//		query.setParameter(0, "123");
+//		query.setParameter(1, "456");
+//		user = query.uniqueResult();
+//		System.out.println(user.getId());
+//		System.out.println(session.load(UserBean.class, 2));
 //		@SuppressWarnings("unchecked")
 //		List<UserBean> lists = session.createQuery("FROM UserBean").list();
 //		System.out.println(lists);
-//		session.getTransaction().commit();
-//		HibernateUtil.closeSessionFactory();
+		session.getTransaction().commit();
+		HibernateUtil.closeSessionFactory();
 	}
 	
 	@Override
@@ -42,10 +67,10 @@ public class UserBean implements Cloneable {
 		return "UserBean [id=" + id + ", name=" + name + ", account=" + account + ", password=" + password + ", birth="
 				+ birth + ", email=" + email + ", sex=" + sex + ", rank=" + rank + ", phone=" + phone + "]";
 	}
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {

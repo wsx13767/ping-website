@@ -17,7 +17,8 @@ public class LoginInterceptor implements HandlerInterceptor {
 			request.getRequestDispatcher("/").forward(request, response);
 			return false;
 		}
-		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout") || uri.endsWith("/register")) {
+		if (uri.endsWith("/registerLogin") || uri.endsWith("/login") || uri.endsWith("/logout") || uri.endsWith("/register")
+				|| uri.endsWith("/AccountCheck")) {
 			return true;
 		}
 		if (request.getSession().getAttribute("sessionUser") != null) {

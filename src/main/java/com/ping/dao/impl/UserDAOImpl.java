@@ -58,9 +58,9 @@ public class UserDAOImpl implements UserDAO {
 		UserBean obj = null;
 		try {
 			session = this.getSession();
-			Query<Long> count = session.createQuery("select count(*) from UserBean", Long.class);
+//			Query<Long> count = session.createQuery("select count(*) from UserBean", Long.class);
 			
-			userBean.setId(Integer.valueOf(count.uniqueResult().toString()).intValue() + 1);
+//			userBean.setId(Integer.valueOf(count.uniqueResult().toString()).intValue() + 1);
 			session.save(userBean);
 			obj = userBean;
 		} catch (HibernateException e) {

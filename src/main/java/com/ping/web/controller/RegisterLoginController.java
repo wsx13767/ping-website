@@ -1,6 +1,8 @@
 package com.ping.web.controller;
 
 
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -8,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.plaf.BorderUIResource.EmptyBorderUIResource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
@@ -15,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import com.ping.formBean.RegisterLoginFormBean;
@@ -87,5 +91,34 @@ public class RegisterLoginController {
 		//防止按完註冊又改變語言發生錯誤
 		language = RequestContextUtils.getLocale(request);
 		return "/jsp/registerLogin";
+	}
+	
+	@RequestMapping(value="/AccountCheck", method = RequestMethod.POST)
+	public @ResponseBody void AccountCheck(HttpServletRequest req) {
+		System.out.println(req.getContentType());
+		System.out.println(req.getCharacterEncoding());
+		
+		System.out.println(req.getPathTranslated());
+		System.out.println(req.getContentLength());
+		Enumeration<String> name = req.getHeaderNames();
+		while(name.hasMoreElements()) {
+			String key =(String) name.nextElement();
+			String value = req.getHeader(key);
+			System.out.println(key + ":" + value);
+		}
+		Enumeration params = req.getParameterNames();
+		while(params.hasMoreElements()) {
+			System.out.println(params.nextElement());
+		}
+//		Collections.list().forEach(name -> {
+//			System.out.println(name + ":" + req.getHeader(name));
+//		});
+		
+		
+		String tt = req.getParameter("account");
+		System.out.println(tt);
+		String account =(String) req.getAttribute("account");
+		System.out.println("測試");
+		System.out.println(account);
 	}
 }

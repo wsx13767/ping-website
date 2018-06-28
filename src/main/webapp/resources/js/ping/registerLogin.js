@@ -14,6 +14,19 @@ function alreadyRead() {
 	});
 }
 
+function AccountCheck(obj) {
+	console.log(obj.value);
+	$.ajax({
+		type:'POST',
+		data:{'account':obj.value},
+		contentType : "application/json; charset=utf-8",
+		url:"registerLogin/AccountCheck",
+		success:function() {
+			
+		}
+	});
+}
+
 //function loginCheck() {
 //	$.ajax({
 //		type:"post",

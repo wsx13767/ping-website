@@ -31,7 +31,7 @@
 						<form role="form" action="<c:url value="/views/registerLogin/register"/>" method="post">
 							<div class="form-group">
 								<label><spring:message code="registerLogin.account"/></label><span style="color: red;"> ${error.registerAccount}</span>
-								<input type="text" name="account" class="form-control">
+								<input type="text" name="account" class="form-control" onblur="AccountCheck(this);">
 								<label><spring:message code="registerLogin.password"/></label><span style="color: red;"> ${error.registerPassword}</span>
 								<input type="password" name="password" class="form-control">
 							</div>
